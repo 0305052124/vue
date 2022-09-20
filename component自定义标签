@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script> 
+</head>
+<body>
+    <div id="app">//视图
+        <le v-for="item in items" v-bind:ret="item"></le>//历遍items数组，把item绑定在ret上
+    </div>
+    <script>
+        
+        Vue.component("le", {    //component自定义标签le
+            props:['ret'],    //
+            template:'<li>{{ret}}<li>'//不能直接放ret，需要上面的props
+        });
+
+        var vm = new Vue({
+            el:'#app',//绑定app
+            data:{  //data中定义数组items
+                items:["1","2","3"]
+            }
+        });
+    </script>
+</body>
+</html>
